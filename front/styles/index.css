@@ -42,5 +42,55 @@ header button{
     width: 100px;
     background-color: rgba(0, 0, 0, 0.199);
     border-bottom: 2px solid rgb(255, 255, 255);
+    margin-left: -200px;
     transition: all 0.5s;
+}
+section{
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section div{
+    box-shadow: -1px 1px 5px 0px  black;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.5s;
+}
+section div div{
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    margin: 20px;
+    align-items: center;
+}
+.table-list{
+    height: 30vh;
+    width: 20vw;
+    margin: 0;
+    box-shadow: -1px 1px 5px 0px  black;
+
+}
+.buyInfo{
+    height: 20vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: -30px;
+}
+.finalizeSaleBt{
+    height: 40px;
+    width: 100px;
+    margin-top: 40px;
+    border: none;
+    color: white;
+    box-shadow: -1px 1px 5px 0px  black;
+    background-color: rgb(253, 112, 56);
+}
+.q1{
+    margin-left: 20px;
+}
+.q2{
+    width: 7vw;
+    margin-left: 20px;
 }

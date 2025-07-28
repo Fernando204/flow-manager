@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,57 @@
             <button onclick="gotoHistoric()">Histórico</button>
         </div>
     </header>
+    <section>
+        <div class="vendaBox">
+            <h1 style="position: absolute; margin-left: 20px;">Vendas: </h1>
+            <div class="buyInfo">
+                <p>Produto:</p>
+                <p class="q1">Quantidade:</p>
+                <input type="text">
+                <input class="q2" type="number">    
+                
+                <p>Forma de Pagamento:</p>
+                <select name="" id="">
+                    <option value="money">dinheiro</option>
+                    <option value="">Crédito</option>
+                    <option value="">Débito</option>
+                    <option>Fiado</option>
+                </select>
+
+                <p>Cliente: </p>
+                <input class="clientInput" type="text">
+
+                <button class="finalizeSaleBt">Finalizar Venda</button>
+            </div>
+    
+            <div>
+                <p>Compra:</p>
+                <div class="table-list"></div>
+            </div>
+        </div>
+
+        <div class="clientBox" style="opacity: 0; position: absolute;">
+            <h1 style="margin-left: 70px; position: absolute;">Registro de Clientes:</h1>
+            <div>
+                <p>Nome:</p>
+                <input type="text">
+                <p>CPF</p>
+                <input type="text">
+
+                <button>Registrar</button>
+            </div>
+
+            <div>
+                <h4>Lista de Clientes: </h4>
+                <div class="table-list">
+
+                </div>
+            </div>
+            <div class="historicBox" style="opacity: 0; position: absolute;">
+
+            </div>
+        </div>
+    </section>
     <script src="src/index.js"></script>
 </body>
 </html>
