@@ -1,0 +1,46 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0;
+}
+header{
+    padding-top: 10px;
+    padding-left: 10px;
+    background-color: orange;
+    color: white;
+}
+header h1{
+    font-size: 40px;
+}
+button{
+    cursor: pointer;
+    z-index: 1;
+}
+.areaBts{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(214, 139, 0);
+    margin-left: -10px;
+    justify-content: center;
+    overflow: visible;
+}
+header button{
+    background-color: rgba(214, 139, 0, 0);
+    height: 40px;
+    border: none;
+    color: white;
+    padding: 5px;
+    width: 100px;
+    height: 36px;
+}
+.selectAreaBt{
+    z-index: 0;
+    position: absolute;
+    height: 34px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.199);
+    border-bottom: 2px solid rgb(255, 255, 255);
+    transition: all 0.5s;
+}
