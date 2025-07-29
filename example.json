@@ -1,0 +1,12 @@
+{
+    "clientName":{
+        "compra":{
+            "data": "23/3/2354",
+            "produtos":{
+                "produto1":23.34,
+                "produto2": 65.34
+            },
+            "total": 456.86
+        }
+    }
+}
