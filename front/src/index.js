@@ -15,7 +15,6 @@ const gotoClientRegister = ()=>{
     openBox.style.opacity = "0";
     clientRegister.style.opacity = "1";
     openBox = clientRegister;
-
 }
 const gotoHistoric = ()=>{
     selectBtView.style.marginLeft = "200px";
