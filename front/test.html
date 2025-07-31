@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Busca de Produtos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+
+    .search-container {
+      position: relative;
+      width: 300px;
+    }
+
+    #search {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      border: 1px solid #ccc;
+      border-top: none;
+      background: white;
+      max-height: 150px;
+      overflow-y: auto;
+      z-index: 10;
+    }
+
+    .suggestion-item {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .suggestion-item:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Digite o nome do produto...">
+    <div class="suggestions" id="suggestions"></div>
+  </div>
+
+  <script>
+    const produtos = [
+      "Arroz",
+      "Feijão",
+      "Macarrão",
+      "Leite",
+      "Café",
+      "Açúcar",
+      "Sal",
+      "Farinha de Trigo",
+      "Óleo de Soja",
+      "Sabonete",
+      "Detergente",
+      "Papel Higiênico"
+    ];
+
+    const searchInput = document.getElementById("search");
+    const suggestionsBox = document.getElementById("suggestions");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      suggestionsBox.innerHTML = "";
+
+      if (query === "") return;
+
+      const resultados = produtos.filter(produto =>
+        produto.toLowerCase().includes(query)
+      );
+
+      resultados.forEach(produto => {
+        const item = document.createElement("div");
+        item.classList.add("suggestion-item");
+        item.textContent = produto;
+        item.onclick = () => {
+          searchInput.value = produto;
+          suggestionsBox.innerHTML = "";
+        };
+        suggestionsBox.appendChild(item);
+      });
+    });
+
+    // Opcional: fecha as sugestões ao clicar fora
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".search-container")) {
+        suggestionsBox.innerHTML = "";
+      }
+    });
+  </script>
+
+</body>
+</html>

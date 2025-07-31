@@ -26,6 +26,15 @@ button{
     justify-content: center;
     overflow: visible;
 }
+.main-button{
+    height: 40px;
+    width: 100px;
+    margin-top: 40px;
+    border: none;
+    color: white;
+    box-shadow: -1px 1px 5px 0px  black;
+    background-color: rgb(253, 112, 56);
+}
 header button{
     background-color: rgba(214, 139, 0, 0);
     height: 40px;
@@ -42,7 +51,7 @@ header button{
     width: 100px;
     background-color: rgba(0, 0, 0, 0.199);
     border-bottom: 2px solid rgb(255, 255, 255);
-    margin-left: -200px;
+    margin-left: -300px;
     transition: all 0.5s;
 }
 section{
@@ -79,13 +88,7 @@ section div div{
     gap: -30px;
 }
 .finalizeSaleBt{
-    height: 40px;
-    width: 100px;
-    margin-top: 40px;
-    border: none;
-    color: white;
-    box-shadow: -1px 1px 5px 0px  black;
-    background-color: rgb(253, 112, 56);
+    
 }
 .q1{
     margin-left: 20px;

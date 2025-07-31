@@ -1,21 +1,40 @@
-const selectBtView = document.querySelector(".selectAreaBt");
-const vendaBox = document.querySelector(".vendaBox");
-const clientRegister = document.querySelector(".clientBox");
+const registerClient = ()=>{
+    fetch(serv+"/flow/client/register",{
+        headers:{"Content-Type":"application/json"},
+        method: "POST",
+        body: JSON.stringify(
+            {name: clientNameInput.value,
+            CPF: clientCPFinput.value, 
+            phone: clientPhoneInput.value})
 
-let openBox = vendaBox;
+    }).then(response =>{
+        if (!response.ok) {
+            throw new Error("erro ao registrar cliente")
+        }
+        const data = response.text();
+        return data;
+    }).then(response =>{
+        alert(response);
+        console.log(response);
+    }).catch(err =>{
+        console.log(err);
+        alert(err);
+    })
+}
 
-const gotoCaixa = ()=>{
-    selectBtView.style.marginLeft = "-200px";
-    openBox.style.opacity = "0";
-    vendaBox.style.opacity = "1";
-    openBox = vendaBox;
-}
-const gotoClientRegister = ()=>{
-    selectBtView.style.marginLeft = "0px";
-    openBox.style.opacity = "0";
-    clientRegister.style.opacity = "1";
-    openBox = clientRegister;
-}
-const gotoHistoric = ()=>{
-    selectBtView.style.marginLeft = "200px";
+const registerProduct = ()=>{
+    fetch(serv+"/products",{
+        headers: {"Content-Type":"application/json"},
+        method: "POST",
+        body: JSON.stringify({
+            name: productNameInput.value,
+            price: productPriceInput,
+            medida: medidaSelect.value,
+            granelPrice: granelPrice.value
+        })
+    }).then(response =>{
+        if (!response.ok){
+            
+        }
+    })
 }
