@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.flow.manager.Models.Products;
 import com.flow.manager.respositories.ProductRepository;
+import com.flow.manager.utils.Console;        
 
 import java.util.List;
 
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 
 
 @RestController
@@ -40,7 +40,7 @@ public class ProductsController {
     @PostMapping()
     public ResponseEntity<?> saveProduct(@RequestBody Products product) {
         List<Products> produtos = productRepository.findAll();
-        
+        Console.log("foi: "+product.getName());
         if (produtos.contains(product)) {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("O Produto já está registrado");
         }

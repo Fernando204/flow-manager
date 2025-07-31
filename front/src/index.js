@@ -24,17 +24,24 @@ const registerClient = ()=>{
 
 const registerProduct = ()=>{
     fetch(serv+"/products",{
-        headers: {"Content-Type":"application/json"},
         method: "POST",
+        headers: {"Content-Type":"application/json"},
         body: JSON.stringify({
             name: productNameInput.value,
-            price: productPriceInput,
-            medida: medidaSelect.value,
-            granelPrice: granelPrice.value
+            price: productPriceInput.value,
+            medida: medidaSelect.value
         })
     }).then(response =>{
         if (!response.ok){
-            
+            const data = response.text();
+            throw new Error(data);
         }
+        const data = response.text();
+        return data
+    }).then(response =>{
+        alert(response);
+        console.log(response);
+    }).catch(response =>{
+        alert(response);
     })
 }
