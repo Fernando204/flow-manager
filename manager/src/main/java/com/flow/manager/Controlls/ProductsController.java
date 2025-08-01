@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -40,11 +39,12 @@ public class ProductsController {
     @PostMapping()
     public ResponseEntity<?> saveProduct(@RequestBody Products product) {
         List<Products> produtos = productRepository.findAll();
-        Console.log("foi: "+product.getName());
         if (produtos.contains(product)) {
+            Console.error("Erro: Produto "+product.getName()+" já registrado!");
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("O Produto já está registrado");
         }
         productRepository.save(product);
+        Console.success("sucesso ao registrar Produto: "+product.getName());
         return ResponseEntity.ok(product.getName()+" salvo com sucesso");
     }
     

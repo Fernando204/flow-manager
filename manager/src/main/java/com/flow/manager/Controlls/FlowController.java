@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.flow.manager.Models.Client;
 import com.flow.manager.respositories.ClientRepository;
+import com.flow.manager.utils.Console;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,9 +24,16 @@ public class FlowController {
 
     @PostMapping("/client/register")
     public ResponseEntity<?> clientRegister(@RequestBody Client cliente) {
-        clientRepository.save(cliente);
+        try{
+            clientRepository.save(cliente);
+            Console.success("Sucesso ao registrar CLiente: "+cliente.getName());
+            return ResponseEntity.ok("cliente registrado com sucesso");
+        }catch(Exception ex){
+            ex.printStackTrace();
+            Console.error("Erro ao registrar Cliente");;
+            return ResponseEntity.badRequest().body("Erro ao registrar Cliente");
+        }
         
-        return ResponseEntity.ok("cliente registrado com sucesso");
     }
     
     
