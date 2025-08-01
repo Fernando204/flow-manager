@@ -28,4 +28,12 @@ const gotoHistoric = ()=>{
     selectBtView.style.marginLeft = "300px";
 }
 
+const gotoLogin = ()=>{
+    loginBox.style.display = "flex";
+    registerBox.style.display = "none";
+} 
+const gotoRegister = ()=>{
+    loginBox.style.display = "none";
+    registerBox.style.display = "flex";
+}
 

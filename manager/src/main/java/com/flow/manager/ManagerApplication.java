@@ -10,7 +10,13 @@ public class ManagerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ManagerApplication.class, args);
-		Console.log("Servidor iniciado");
+
+		try{
+			Thread.sleep(3000);
+			Console.log("Servidor iniciado");
+		}catch(InterruptedException ex){
+			ex.printStackTrace();
+		}
 	}
 
 }

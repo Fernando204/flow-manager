@@ -5,6 +5,30 @@ body{
     margin: 0;
     overflow-x: hidden;
 }
+.area{
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userLogin, .userRegister {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: -1px 1px 5px 1px black;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.userLogin button, .userRegister button{
+    margin-top: 20px;
+}
+.userLogin p, .userRegister p{
+    margin: 5px;
+}
 header{
     padding-top: 10px;
     padding-left: 10px;

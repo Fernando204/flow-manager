@@ -1,3 +1,15 @@
+//Areas para login e registro:
+const loginBox = document.querySelector(".userLogin");
+const registerBox = document.querySelector(".userRegister")
+const mainArea = document.getElementById("mainArea");
+const loginArea = document.getElementById("loginArea");
+
+//elementos para login ou registro:
+const registerName = document.getElementById("registerName");
+const registerEmail = document.getElementById("registerEmail");
+const registerPassword = document.getElementById("registerPassword");
+const confirmPassword = document.getElementById("confirmPassword")
+
 //elementos de layout da pagina
 const selectBtView = document.querySelector(".selectAreaBt");
 const vendaBox = document.querySelector(".vendaBox");
@@ -17,4 +29,5 @@ const granelPrice = document.getElementById("precoGranel");
 
 let productList = [];
 let clientList = [];
+let userData = {};
 let openBox = vendaBox;//variavel para separar a interface exibida
