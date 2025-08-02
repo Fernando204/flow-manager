@@ -9,6 +9,11 @@ const registerName = document.getElementById("registerName");
 const registerEmail = document.getElementById("registerEmail");
 const registerPassword = document.getElementById("registerPassword");
 const confirmPassword = document.getElementById("confirmPassword")
+const registerBt = document.getElementById("registerBt")
+
+const emailInput = document.getElementById("emailInput");
+const passwordInput = document.getElementById("passwordInput");
+const loginBt = document.getElementById("loginBt"); 
 
 //elementos de layout da pagina
 const selectBtView = document.querySelector(".selectAreaBt");

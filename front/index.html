@@ -12,16 +12,16 @@
             <h3>Login:</h3>
 
             <p>Email:</p>
-            <input type="email">
+            <input id="emailInput" type="email">
 
             <p>senha:</p>
-            <input type="password">
+            <input id="passwordInput" type="password">
 
             <div style="display: flex; flex-direction: row;">
                 <input type="checkbox" name="" id=""><p>Mostrar Senha?</p>
             </div>
 
-            <button class="main-button">Login</button>
+            <button id="loginBt" class="main-button">Login</button>
             <button onclick="gotoRegister()" class="main-button">Cadastrar-se</button>
         </div>
         <div class="userRegister" style="display: none;">
@@ -43,7 +43,7 @@
                 <input type="checkbox" name="" id=""><p>Mostrar Senha?</p>
             </div>
 
-            <button onclick="registerUser()" class="main-button">Cadastrar-se</button>
+            <button id="registerBt" class="main-button">Cadastrar-se</button>
             <button onclick="gotoLogin()" class="main-button">Voltar</button>
         </div>
     </div>

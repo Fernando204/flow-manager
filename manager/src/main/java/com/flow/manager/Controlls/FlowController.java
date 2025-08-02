@@ -7,10 +7,16 @@ import com.flow.manager.Models.Client;
 import com.flow.manager.respositories.ClientRepository;
 import com.flow.manager.utils.Console;
 
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/flow")
@@ -33,8 +39,17 @@ public class FlowController {
             Console.error("Erro ao registrar Cliente");;
             return ResponseEntity.badRequest().body("Erro ao registrar Cliente");
         }
-        
     }
+
+    @GetMapping("/client/get")
+    public ResponseEntity<?> getClients(@RequestParam String id){
+        List<Client> clientes = clientRepository.findByUser(id);
+        if (clientes.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nenhum Cliente Registrado");
+        }
+        return ResponseEntity.ok(clientes);
+    }
+    
     
     
 }

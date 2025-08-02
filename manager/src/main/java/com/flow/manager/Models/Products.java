@@ -14,22 +14,26 @@ public class Products {
     private String name;
     private double price;
     private String medida;
+    private String user;
 
     private LocalDateTime dataDeRegistro;
 
-    public Products(String name,double price,String medida){
+    public Products(String name,double price,String medida,String user){
         this.price = price;
         this.name = name;
         this.medida = medida;
+        this.user = user;
         
 
         this.dataDeRegistro = LocalDateTime.now();
     }
 
+    public String getUser() {
+        return user;
+    }
     public String getId() {
         return id;
     }
-    
     public String getMedida() {
         return medida;
     }
@@ -43,7 +47,9 @@ public class Products {
         return price;
     }
 
-  
+    public void setUser(String user) {
+        this.user = user;
+    }
     public void setMedida(String medida) {
         this.medida = medida;
     }

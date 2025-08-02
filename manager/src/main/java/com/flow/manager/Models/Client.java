@@ -16,6 +16,7 @@ public class Client {
     private String CPF;
     private long phone;
     private LocalDateTime date;
+    private String user;
 
     private List<Compra> compraList = new ArrayList<>();
 
@@ -26,6 +27,9 @@ public class Client {
         this.date = LocalDateTime.now();
     }
 
+    public String getUser() {
+        return user;
+    }
     public String getId() {
         return id;
     }
@@ -45,6 +49,9 @@ public class Client {
         return compraList;
     }
 
+    public void setUser(String user) {
+        this.user = user;
+    }
     public void setCPF(String cPF) {
         CPF = cPF;
     }
@@ -54,9 +61,7 @@ public class Client {
     public void setDate(LocalDateTime date) {
         this.date = date;
     }
-    public void setId(String id) {
-        this.id = id;
-    }public void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
     public void setPhone(long phone) {

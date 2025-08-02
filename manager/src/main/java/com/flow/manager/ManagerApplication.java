@@ -12,7 +12,7 @@ public class ManagerApplication {
 		SpringApplication.run(ManagerApplication.class, args);
 
 		try{
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 			Console.log("Servidor iniciado");
 		}catch(InterruptedException ex){
 			ex.printStackTrace();
