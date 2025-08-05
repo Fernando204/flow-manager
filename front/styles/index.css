@@ -76,7 +76,7 @@ header button{
     width: 100px;
     background-color: rgba(0, 0, 0, 0.199);
     border-bottom: 2px solid rgb(255, 255, 255);
-    margin-left: -300px;
+    margin-left: -400px;
     transition: all 0.5s;
 }
 section{
@@ -181,4 +181,9 @@ button:hover{
     border: none;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 10px;
+}
+#userInfoDiv div{
+    display: grid;
+    grid-template-columns: repeat(2,5fr);
+    gap: 5px;
 }

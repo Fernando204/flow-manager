@@ -28,7 +28,7 @@ public class SecurityConfig implements WebMvcConfigurer {
             .and()
             .csrf().disable()
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/user/login","/user/register","products/**","/flow/**").permitAll()
+                .requestMatchers("/user/**","products/**","/flow/**").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin().disable()

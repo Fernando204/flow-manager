@@ -174,6 +174,7 @@ const registerUser = ()=>{
     fetch(serv+"/user/register",{
         method: "POST",
         headers: {"Content-Type": "application/json"},
+        credentials: "include",
         body:JSON.stringify({name: name, email: email, password: password})
     }).then( async response =>{
         if (!response.ok) {
@@ -184,8 +185,10 @@ const registerUser = ()=>{
         return data;
     }).then(response =>{
         alert(response.name+" registrado com sucesso");
+
         userData = response;
         loadInfoMethod();
+
         loginArea.style.display = "none";
         mainArea.style.display = "block";
     }).catch(error =>{
@@ -215,6 +218,7 @@ const loginUser = ()=>{
     fetch(serv+"/user/login",{
         method: "POST",
         headers: {"Content-Type": "application/json"},
+        credentials: "include",
         body:JSON.stringify({email: email, password: password})
     }).then( async response =>{
         if (!response.ok) {

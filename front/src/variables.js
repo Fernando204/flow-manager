@@ -29,6 +29,8 @@ const selectBtView = document.querySelector(".selectAreaBt");
 const vendaBox = document.querySelector(".vendaBox");
 const clientRegister = document.querySelector(".clientBox");
 const productRegisterBox = document.querySelector(".productRegisterBox");
+const userInfoDiv = document.getElementById("userInfoDiv");
+const userNameH1 = document.getElementById("userNameH1");
 
 //elementos para registrar clientes
 const clientNameInput = document.getElementById("clientName");

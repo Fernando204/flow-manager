@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flow Manager</title>
     <link rel="stylesheet" href="styles/index.css">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 <body>
     <div class="area" id="loginArea">
@@ -50,12 +51,14 @@
     <div class="area" style="display: none;" id="mainArea">
         <header>
             <h1>Gerenciador de Fluxo</h1>
+            <h3 id="userNameH1"></h3>
             <div class="areaBts">
                 <div class="selectAreaBt"></div>
                 <button onclick="gotoCaixa()">Caixa</button>
                 <button onclick="gotoClientRegister()">Registro de Clientes</button>
                 <button onclick="gotoProductRegister()">Registro de Produtos</button>
                 <button onclick="gotoHistoric()">Histórico</button>
+                <button onclick="userInfoPageOpen()" class="userInfoBt"><i class="material-symbols-outlined">person</i></button>
             </div>
         </header>
         <section>
@@ -136,6 +139,15 @@
                     <div id="productList" class="table-list"></div>
                 </div>
             </div>
+            <div id="userInfoDiv" style="opacity: 0; position: absolute; z-index: 0; flex-direction: column;">
+                <h1>Informações de Usuário</h1>
+                <div>
+                    <h4>Nome de Usuário: </h4><p id="infoUserName">teste</p>
+                    <h4>ID de Usuário: </h4><p id="infoUserId">teste893754</p>
+                    <h4>Data de Entrada: </h4><p id="infoUserDate">teste 324/324/234</p>
+                </div>
+                <button class="main-button">logout</button>
+            </div>
         </section>
     </div>
 
@@ -143,5 +155,6 @@
     <script src="src/out.js"></script>
     <script src="src/pageFunctions.js"></script>
     <script src="src/index.js"></script>
+    <script src="src/initializeSession.js"></script>
 </body>
 </html>
