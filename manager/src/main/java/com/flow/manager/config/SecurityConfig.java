@@ -28,10 +28,11 @@ public class SecurityConfig implements WebMvcConfigurer {
             .and()
             .csrf().disable()
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/user/login","/user/register","products/**").permitAll()
+                .requestMatchers("/user/login","/user/register","products/**","/flow/**").permitAll()
                 .anyRequest().authenticated()
             )
-            .formLogin().disable();
+            .formLogin().disable()
+            .httpBasic().disable();
 
         return http.build();
     }

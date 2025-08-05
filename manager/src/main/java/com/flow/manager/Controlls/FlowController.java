@@ -45,8 +45,10 @@ public class FlowController {
     public ResponseEntity<?> getClients(@RequestParam String id){
         List<Client> clientes = clientRepository.findByUser(id);
         if (clientes.isEmpty()) {
+            Console.error("nenhum cliente registrado");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Nenhum Cliente Registrado");
         }
+        Console.success("Lista de clientes recuperada");
         return ResponseEntity.ok(clientes);
     }
     

@@ -18,7 +18,7 @@
             <input id="passwordInput" type="password">
 
             <div style="display: flex; flex-direction: row;">
-                <input type="checkbox" name="" id=""><p>Mostrar Senha?</p>
+                <input type="checkbox" name="" id="showPassword1"><p>Mostrar Senha?</p>
             </div>
 
             <button id="loginBt" class="main-button">Login</button>
@@ -40,7 +40,7 @@
             <input id="confirmPassword" type="password" required minlength="8">
 
             <div style="display: flex; flex-direction: row;">
-                <input type="checkbox" name="" id=""><p>Mostrar Senha?</p>
+                <input type="checkbox" name="" id="showPassword2"><p>Mostrar Senha?</p>
             </div>
 
             <button id="registerBt" class="main-button">Cadastrar-se</button>
@@ -105,7 +105,7 @@
     
                 <div>
                     <h4>Lista de Clientes: </h4>
-                    <div class="table-list">
+                    <div id="clientList" class="table-list">
     
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                     <input id="productName" type="text">
                     <p>Preço do produto:</p>
                     <input id="productPrice" type="number">
-                    <div style="display: flex; flex-direction: row; margin: -20px;">
+                    <div style="display: flex; flex-direction: row; margin: 0px;">
                         <p>Medida: </p>
                         <select style="margin-left: 10px;" id="medidaSelect">
                             <option value="kilo">Kilo</option>
@@ -133,7 +133,7 @@
                 </div>
                 <div>
                     <p>Produtos Registrados:</p>
-                    <div class="table-list"></div>
+                    <div id="productList" class="table-list"></div>
                 </div>
             </div>
         </section>

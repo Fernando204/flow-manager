@@ -103,8 +103,13 @@ section div div{
 .table-list{
     height: 30vh;
     width: 20vw;
+    padding: 0;
     margin: 0;
     box-shadow: -1px 1px 5px 0px  black;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
 
 }
 .buyInfo{
@@ -122,4 +127,58 @@ section div div{
 .q2{
     width: 7vw;
     margin-left: 20px;
+}
+.list-item{
+    margin: 0;
+    border-bottom: 2px solid black;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    position: relative;
+}
+.list-item p{
+    margin-left: 10px;
+}
+.list-item button{
+    margin: 0;
+    position: absolute;
+    margin-left: 130px;
+
+    border: none;
+    color: white;
+    box-shadow: -1px 1px 5px 0px  black;
+    background-color: rgb(253, 112, 56);
+    padding: 10px;
+}
+button:hover{
+    opacity: 0.9;
+}
+.infoDiv{
+    position: absolute;
+    display: none;
+    height: 70vh;
+    width: 70vw;
+    flex-direction: column;
+    margin-top: -85vh;
+    margin-left: 15vw;
+    background-color:rgb(255, 255, 255);
+    box-shadow: -1px 1px 5px 0px  black;
+    z-index: 2;
+    border-radius: 5px;
+}
+.infoDiv p{
+    margin-left: 40px;
+}
+.infoDiv button{
+    height: 5vh;
+    width: 5vh;
+    position: absolute;
+    right: 0;
+    background-color: rgb(253, 112, 56);
+    color: white;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 10px;
 }

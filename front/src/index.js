@@ -1,4 +1,4 @@
-const getMethod = async (url)=>{
+const getMethod = async (url)=>{//função reutilizavel para fazer requisições GET
     try{
         const response = await fetch(serv+url);
         if (!response.ok) {
@@ -12,31 +12,93 @@ const getMethod = async (url)=>{
         console.log(err);
     }
 }
+const loadList = (list,listDiv)=>{
+    if (Array.isArray(list)){
+            listDiv.innerHTML = "";
+            list.forEach(item=>{
+                const client = document.createElement("div");
+                client.classList.add("list-item");
+
+                const name = document.createElement("p");
+                name.textContent = item.name;
+                name.style.marginRight = "30px"
+                client.appendChild(name);
+
+                const infoBt = document.createElement("button");
+                infoBt.textContent = "Informações";
+                client.appendChild(infoBt);
+
+                const infoDiv = document.createElement("div");
+                infoDiv.classList.add("infoDiv");
+
+                const closeBt = document.createElement("button");
+                closeBt.textContent = "X";
+                infoDiv.appendChild(closeBt);
+                
+                closeBt.addEventListener("click",()=>{
+                    infoDiv.style.display = "none";
+                })
+
+                infoBt.addEventListener("click",()=>{
+                    infoDiv.style.display = "flex";
+                })
+                
+                if (item.price) {
+                    const title = document.createElement("h1");
+                    title.textContent = "Informações do Produto";
+                    title.style.marginLeft = "20px"
+                    infoDiv.appendChild(title);
+
+                    const name = document.createElement("p");
+                    name.textContent = "Nome do Produto: "+item.name;
+                    infoDiv.appendChild(name);
+
+                    const preço = document.createElement("p");
+                    preço.textContent = "Preço Do Produto: "+item.price;
+                    infoDiv.appendChild(preço);
+
+                    const medida = document.createElement("p");
+                    medida.textContent = "Medida do Produto: "+item.medida;
+                    infoDiv.appendChild(medida);
+
+                    const formatDate = new Date(item.dataDeRegistro);
+                    const data = document.createElement("p");
+                    data.textContent = "Data De registro: "+formatDate.toLocaleString("pt-BR");
+                    infoDiv.appendChild(data);
+                }
+                document.body.appendChild(infoDiv);
+                listDiv.appendChild(client);
+        })
+    }
+}
 const loadInfoMethod = ()=>{
     getMethod("/products/get?id="+userData.id).then(data =>{
         if (data) {
             productList = data;
+            loadList(productList,productListDiv);
             console.log(productList);
         }
     });
-    getMethod("/clients/get?id="+userData.id).then(data =>{
+    getMethod("/flow/client/get?id="+userData.id).then(data =>{
         if (data) {
             clientList = data;
+            loadList(clientList,clientListDiv);
             console.log(clientList);
         }
     });
 }
 
 const registerClient = ()=>{
-    fetch(serv+"/flow/client/register",{
-        headers:{"Content-Type":"application/json"},
-        method: "POST",
-        body: JSON.stringify(
-            {name: clientNameInput.value,
+    const obj = {name: clientNameInput.value,
             CPF: clientCPFinput.value, 
             phone: clientPhoneInput.value,
             user: userData.id 
-        })
+        };
+
+    fetch(serv+"/flow/client/register",{
+        headers:{"Content-Type":"application/json"},
+        method: "POST",
+        body: JSON.stringify(obj)
 
     }).then(response =>{
         if (!response.ok) {
@@ -47,6 +109,8 @@ const registerClient = ()=>{
     }).then(response =>{
         alert(response);
         console.log(response);
+        clientList.push(obj);
+        loadList(clientList,clientListDiv);
     }).catch(err =>{
         console.log(err);
         alert(err);
@@ -54,15 +118,17 @@ const registerClient = ()=>{
 }
 
 const registerProduct = ()=>{
-    fetch(serv+"/products",{
-        method: "POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({
+    const obj = {
             name: productNameInput.value,
             price: productPriceInput.value,
             medida: medidaSelect.value,
             user: userData.id
-        })
+        };
+
+    fetch(serv+"/products",{
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify(obj)
     }).then(response =>{
         if (!response.ok){
             const data = response.text();
@@ -73,6 +139,8 @@ const registerProduct = ()=>{
     }).then(response =>{
         alert(response);
         console.log(response);
+        productList.push(obj);
+        loadList(productList,productListDiv);
     }).catch(response =>{
         alert(response);
     })
@@ -117,6 +185,7 @@ const registerUser = ()=>{
     }).then(response =>{
         alert(response.name+" registrado com sucesso");
         userData = response;
+        loadInfoMethod();
         loginArea.style.display = "none";
         mainArea.style.display = "block";
     }).catch(error =>{
@@ -157,6 +226,7 @@ const loginUser = ()=>{
     }).then(response =>{
         alert(response.name+" logado com sucesso");
         userData = response;
+        loadInfoMethod();
         loginArea.style.display = "none";
         mainArea.style.display = "block";
     }).catch(error =>{

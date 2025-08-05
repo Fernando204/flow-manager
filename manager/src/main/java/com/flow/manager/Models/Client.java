@@ -20,10 +20,11 @@ public class Client {
 
     private List<Compra> compraList = new ArrayList<>();
 
-    public Client(String name,String CPF,long phone){
+    public Client(String name,String CPF,long phone, String user){
         this.name = name;
         this.CPF = CPF;
         this.phone = phone;
+        this.user = user;
         this.date = LocalDateTime.now();
     }
 

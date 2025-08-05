@@ -37,3 +37,12 @@ const gotoRegister = ()=>{
     registerBox.style.display = "flex";
 }
 
+showPassword1.addEventListener("change",()=>{
+    const type = showPassword1.checked ? "text" : "password" ;
+    passwordInput.type = type;
+})
+showPassword2.addEventListener("change",()=>{
+    const type = showPassword2.checked ? "text" : "password" ;
+    registerPassword.type = type;
+    confirmPassword.type = type;
+})
