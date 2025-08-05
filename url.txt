@@ -1,1 +1,0 @@
-$env:MONGODB_URI="mongodb+srv://f3rnNot:f3rnand0@neogendmongodb.i1lpdho.mongodb.net/flow-manager?retryWrites=true`&w=majority`&appName=NeoGendMongoDB"
