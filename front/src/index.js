@@ -43,29 +43,50 @@ const loadList = (list,listDiv)=>{
                     infoDiv.style.display = "flex";
                 })
                 
+                const title = document.createElement("h1");
+                infoDiv.appendChild(title);
                 if (item.price) {
-                    const title = document.createElement("h1");
                     title.textContent = "Informações do Produto";
-                    title.style.marginLeft = "20px"
-                    infoDiv.appendChild(title);
-
+                    
                     const name = document.createElement("p");
                     name.textContent = "Nome do Produto: "+item.name;
                     infoDiv.appendChild(name);
-
+                    
                     const preço = document.createElement("p");
                     preço.textContent = "Preço Do Produto: "+item.price;
                     infoDiv.appendChild(preço);
-
+                    
                     const medida = document.createElement("p");
                     medida.textContent = "Medida do Produto: "+item.medida;
                     infoDiv.appendChild(medida);
-
+                    
                     const formatDate = new Date(item.dataDeRegistro);
                     const data = document.createElement("p");
                     data.textContent = "Data De registro: "+formatDate.toLocaleString("pt-BR");
                     infoDiv.appendChild(data);
+                }else{
+                    title.innerText = "Informações do Cliente: "
+                    
+                    const name = document.createElement("p");
+                    name.textContent = "Nome do Cliente: "+item.name;
+                    infoDiv.appendChild(name);
+
+                    const cpf = document.createElement("p");
+                    cpf.textContent = "CPF: "+item.cpf;
+                    infoDiv.appendChild(cpf);
+
+                    const number = document.createElement("p");
+                    number.textContent = "Número de Telefone: "+item.phone;
+                    infoDiv.appendChild(number);
+                    
+                    const data = document.createElement("p");
+                    const formatDate = new Date(item.date);
+                    data.textContent = "Data de registro: "+formatDate.toLocaleString("pt-BR");
+                    infoDiv.appendChild(data);
+
                 }
+                title.style.marginLeft = "20px"
+
                 document.body.appendChild(infoDiv);
                 listDiv.appendChild(client);
         })
@@ -239,5 +260,23 @@ const loginUser = ()=>{
     })
 }
 
+logoutBt.addEventListener("click",async ()=>{
+    try{
+        const response = await fetch(serv+"/user/logout",{
+            method: "GET",
+            credentials: "include"
+        });
+        if(!response.ok) {
+            const textError = await response.text();
+            throw new Error()
+        }
+        const responseMessage = await response.text();
+        alert(responseMessage);
+        window.location.reload();
+    }catch(err){
+        alert(err);
+        console.log(err);
+    }
+})
 loginBt.addEventListener("click",loginUser);
 registerBt.addEventListener("click",registerUser);

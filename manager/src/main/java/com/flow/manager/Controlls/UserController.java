@@ -125,14 +125,20 @@ public class UserController {
     
     @GetMapping("/logout")
     public ResponseEntity<?> getMethodName(HttpServletResponse response) {
-        Cookie cookie = new Cookie("Jwt_token", null);
-        cookie.setHttpOnly(true);
-        cookie.setPath("/");
-        cookie.setMaxAge(0);
-
-        response.addCookie(cookie);
-
-        return ResponseEntity.ok("logout realizado com sucesso");
+        try{
+            Cookie cookie = new Cookie("Jwt_token", null);
+            cookie.setHttpOnly(true);
+            cookie.setPath("/");
+            cookie.setMaxAge(0);
+    
+            response.addCookie(cookie);
+            
+            Console.log("Usuário deslogado com sucesso");
+            return ResponseEntity.ok("logout realizado com sucesso");
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return ResponseEntity.internalServerError().body("Erro ao realizar o logout");
+        }
     }   
     
 

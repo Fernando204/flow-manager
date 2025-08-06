@@ -14,9 +14,12 @@ fetch(serv+"/user/session",{
     userNameH1.innerHTML = response.name;
     loadInfoMethod();
 
+    infoUserName.innerHTML = response.name;
+    infoUserDate.innerHTML = response.data;
+    infoUserId.innerHTML = response.id;
+    
     loginArea.style.display = "none";
     mainArea.style.display = "block";
 }).catch(error =>{
-    alert(error);
     console.log(error);
 });

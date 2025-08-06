@@ -25,12 +25,18 @@ const passwordInput = document.getElementById("passwordInput");
 const loginBt = document.getElementById("loginBt"); 
 
 //elementos de layout da pagina
+const logoutBt = document.getElementById("logoutBt");
 const selectBtView = document.querySelector(".selectAreaBt");
 const vendaBox = document.querySelector(".vendaBox");
 const clientRegister = document.querySelector(".clientBox");
 const productRegisterBox = document.querySelector(".productRegisterBox");
 const userInfoDiv = document.getElementById("userInfoDiv");
 const userNameH1 = document.getElementById("userNameH1");
+
+//elementos de informações do cliente:
+const infoUserName = document.getElementById("infoUserName");
+const infoUserId = document.getElementById("infoUserId");
+const infoUserDate = document.getElementById("infoUserDate");
 
 //elementos para registrar clientes
 const clientNameInput = document.getElementById("clientName");
