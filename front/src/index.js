@@ -33,6 +33,7 @@ const loadList = (list,listDiv)=>{
 
                 const closeBt = document.createElement("button");
                 closeBt.textContent = "X";
+                closeBt.classList.add("closeBt")
                 infoDiv.appendChild(closeBt);
                 
                 closeBt.addEventListener("click",()=>{
@@ -42,10 +43,15 @@ const loadList = (list,listDiv)=>{
                 infoBt.addEventListener("click",()=>{
                     infoDiv.style.display = "flex";
                 })
+
+                const deleteBt = document.createElement("button");
+                deleteBt.classList.add("main-button");
+                deleteBt.classList.add("deletBt")
                 
                 const title = document.createElement("h1");
                 infoDiv.appendChild(title);
                 if (item.price) {
+                    deleteBt.textContent = "Excluir Produto";
                     title.textContent = "Informações do Produto";
                     
                     const name = document.createElement("p");
@@ -65,6 +71,7 @@ const loadList = (list,listDiv)=>{
                     data.textContent = "Data De registro: "+formatDate.toLocaleString("pt-BR");
                     infoDiv.appendChild(data);
                 }else{
+                    deleteBt.textContent = "Excluir Cliente";
                     title.innerText = "Informações do Cliente: "
                     
                     const name = document.createElement("p");
@@ -83,9 +90,9 @@ const loadList = (list,listDiv)=>{
                     const formatDate = new Date(item.date);
                     data.textContent = "Data de registro: "+formatDate.toLocaleString("pt-BR");
                     infoDiv.appendChild(data);
-
                 }
                 title.style.marginLeft = "20px"
+                infoDiv.appendChild(deleteBt);
 
                 document.body.appendChild(infoDiv);
                 listDiv.appendChild(client);
@@ -280,3 +287,58 @@ logoutBt.addEventListener("click",async ()=>{
 })
 loginBt.addEventListener("click",loginUser);
 registerBt.addEventListener("click",registerUser);
+
+productInput.addEventListener("input",()=>{
+    const query = productInput.value.toLowerCase();
+    searchProductBox.innerHTML = "";
+    
+    if (query == "") return;
+    
+    const result = [];
+    productList.forEach(item =>{
+        if (item.name.toLowerCase().includes(query)){
+            result.push(item);
+        }
+    })
+    
+    result.forEach(produto =>{
+        const item = document.createElement("div");
+        item.classList.add("search-item")
+        item.textContent = produto.name;
+        item.onclick = ()=>{
+            productInput.value = produto.name;
+            searchProductBox.innerHTML = '';
+        }
+        searchProductBox.appendChild(item);
+    })
+})
+clientInput.addEventListener("input",()=>{
+    const query = clientInput.value;
+    clientSearchBox.innerHTML = "";
+
+    if(query == "") return;
+
+    const result = [];
+    clientList.forEach(client =>{
+        if (client.name.toLowerCase().includes(query)) {
+            result.push(client);        
+        }
+    })
+
+    result.forEach(client =>{
+        const item = document.createElement("div");
+        item.classList.add("search-item");
+        item.textContent = client.name;
+        item.onclick = ()=>{
+            clientInput.value = client.name;
+            clientSearchBox.innerHTML = "";
+        }
+        clientSearchBox.appendChild(item);
+    })
+})
+document.addEventListener("click", (e) => {
+    if (!e.target.closest(".search-container")) {
+      searchProductBox.innerHTML = "";
+      clientSearchBox.innerHTML = "";
+    }
+  });

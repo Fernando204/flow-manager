@@ -39,8 +39,7 @@ public class ProductsController {
     
     @PostMapping()
     public ResponseEntity<?> saveProduct(@RequestBody Products product) {
-        List<Products> produtos = productRepository.findAll();
-        if (produtos.contains(product)) {
+        if (productRepository.existsByNameAndUser(product.getName(),product.getUser())) {
             Console.error("Erro: Produto "+product.getName()+" já registrado!");
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("O Produto já está registrado");
         }

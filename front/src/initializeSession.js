@@ -17,7 +17,7 @@ fetch(serv+"/user/session",{
     infoUserName.innerHTML = response.name;
     infoUserDate.innerHTML = response.data;
     infoUserId.innerHTML = response.id;
-    
+
     loginArea.style.display = "none";
     mainArea.style.display = "block";
 }).catch(error =>{

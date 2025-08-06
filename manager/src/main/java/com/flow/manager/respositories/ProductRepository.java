@@ -9,4 +9,5 @@ import com.flow.manager.Models.Products;
 public interface ProductRepository extends MongoRepository<Products,String> {
     public List<Products> findByName(String name);
     public List<Products> findByUser(String user);
+    public boolean existsByNameAndUser(String name,String user);
 }

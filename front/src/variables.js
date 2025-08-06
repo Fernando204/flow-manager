@@ -32,6 +32,10 @@ const clientRegister = document.querySelector(".clientBox");
 const productRegisterBox = document.querySelector(".productRegisterBox");
 const userInfoDiv = document.getElementById("userInfoDiv");
 const userNameH1 = document.getElementById("userNameH1");
+const searchProductBox = document.getElementById("searchProductBox");//caixa onde mostra as sugestões de produtos
+const productInput = document.getElementById("productInput");
+const clientInput = document.getElementById("clientInput");
+const clientSearchBox = document.getElementById("clientSearchBox");
 
 //elementos de informações do cliente:
 const infoUserName = document.getElementById("infoUserName");

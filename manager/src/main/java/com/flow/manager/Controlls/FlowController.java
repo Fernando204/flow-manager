@@ -31,6 +31,9 @@ public class FlowController {
     @PostMapping("/client/register")
     public ResponseEntity<?> clientRegister(@RequestBody Client cliente) {
         try{
+            if (clientRepository.existsByNameAndUser(cliente.getName(), cliente.getUser())) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("O Cliente já está cadastrado");
+            }
             clientRepository.save(cliente);
             Console.success("Sucesso ao registrar CLiente: "+cliente.getName());
             return ResponseEntity.ok("cliente registrado com sucesso");

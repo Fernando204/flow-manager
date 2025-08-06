@@ -67,9 +67,9 @@
                 <div class="buyInfo">
                     <p>Produto:</p>
                     <p class="q1">Quantidade:</p>
-                    <div style="margin: 0; padding: 0;">
-                        <input type="text">
-                        <div id="searchProductBox" style="margin: 0;padding: 0;"></div>
+                    <div class="search-container" style="margin: 0; padding: 0;">
+                        <input id="productInput" type="text" autocomplete="off">
+                        <div class="searchBox" id="searchProductBox" ></div>
                     </div>
                     <input class="q2" type="number">    
                     
@@ -82,7 +82,10 @@
                     </select>
     
                     <p>Cliente: </p>
-                    <input class="clientInput" type="text">
+                    <div class="search-container">
+                        <input class="clientInput" id="clientInput" type="text" autocomplete="off">
+                        <div class="searchBox" id="clientSearchBox"></div>
+                    </div>
     
                     <button class="finalizeSaleBt main-button">Finalizar Venda</button>
                 </div>
