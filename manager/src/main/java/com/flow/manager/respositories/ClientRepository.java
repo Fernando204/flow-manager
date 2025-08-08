@@ -1,6 +1,7 @@
 package com.flow.manager.respositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -10,5 +11,6 @@ public interface ClientRepository extends MongoRepository<Client,String> {
     public List<Client> findByName(String name);
     public List<Client> findByUser(String user);
     public boolean existsByNameAndUser(String name,String user);
+    public Optional<Client> findById(String id);
 } 
  

@@ -63,7 +63,7 @@
         </header>
         <section>
             <div class="vendaBox" style="z-index: 1;">
-                <h1 style="position: absolute; margin-left: 20px;">Vendas: </h1>
+                <h1 style="position: relative; margin-left: 20px;">Vendas: </h1>
                 <div class="buyInfo">
                     <p>Produto:</p>
                     <p class="q1">Quantidade:</p>
@@ -72,7 +72,8 @@
                         <div class="searchBox" id="searchProductBox" ></div>
                     </div>
                     <input class="q2" type="number">    
-                    
+                    <button id="addProductBt" class="main-button" style="margin-top: 10px;">Adicionar</button><br>
+
                     <p>Forma de Pagamento:</p>
                     <select id="paymentWay">
                         <option value="money">dinheiro</option>
@@ -87,12 +88,15 @@
                         <div class="searchBox" id="clientSearchBox"></div>
                     </div>
     
-                    <button class="finalizeSaleBt main-button">Finalizar Venda</button>
+                    <button id="finalizeSaleBt" class="finalizeSaleBt main-button">Finalizar Venda</button>
                 </div>
         
-                <div>
+                <div style="margin: 0; padding: 0;">
                     <p>Compra:</p>
-                    <div class="table-list"></div>
+                    <div id="productListDiv" class="table-list"></div>
+                    <div style="display: flex;flex-direction: row;">
+                        <h3>Total: </h3><p style="margin-left: 20px;">0</p>
+                    </div>
                 </div>
             </div>
     

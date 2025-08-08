@@ -1,5 +1,6 @@
 package com.flow.manager.Models;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Client {
     private String CPF;
     private long phone;
     private LocalDateTime date;
+    private BigDecimal divida;
     private String user;
 
     private List<Compra> compraList = new ArrayList<>();
@@ -28,6 +30,12 @@ public class Client {
         this.date = LocalDateTime.now();
     }
 
+    public BigDecimal getDivida() {
+        return divida;
+    }
+    public void setDivida(BigDecimal divida) {
+        this.divida = divida;
+    }
     public String getUser() {
         return user;
     }

@@ -36,6 +36,11 @@ const searchProductBox = document.getElementById("searchProductBox");//caixa ond
 const productInput = document.getElementById("productInput");
 const clientInput = document.getElementById("clientInput");
 const clientSearchBox = document.getElementById("clientSearchBox");
+const finalizeBt = document.getElementById("finalizeSaleBt");
+const addProductBt = document.getElementById("addProductBt");
+const productSaleListDiv = document.getElementById("productListDiv");
+const paymentWay = document.getElementById("paymentWay");
+const quantidade = document.querySelector(".q2");
 
 //elementos de informações do cliente:
 const infoUserName = document.getElementById("infoUserName");
@@ -55,5 +60,7 @@ const granelPrice = document.getElementById("precoGranel");
 
 let productList = [];
 let clientList = [];
+let listaDeCompra = [];
 let userData = {};
+let totalDaCompra = 0;
 let openBox = vendaBox;//variavel para separar a interface exibida

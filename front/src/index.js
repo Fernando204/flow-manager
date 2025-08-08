@@ -342,3 +342,88 @@ document.addEventListener("click", (e) => {
       clientSearchBox.innerHTML = "";
     }
   });
+
+addProductBt.addEventListener("click",()=>{
+    const nomeProduto = productInput.value;
+    console.log("Lista de Produtos: "+productList);
+    productList.forEach(produto =>{
+        if (produto.name == nomeProduto) {
+
+            const obj = {
+                name: produto.name,
+                id: produto.id,
+                quantidade: quantidade.value,
+                price: produto.price,
+                total: (produto.price * parseInt(quantidade.value))
+            };
+            listaDeCompra.push(obj);
+
+            const div = document.createElement("div");
+            div.classList.add("list-item");
+
+            const nome = document.createElement("p");
+            nome.textContent = produto.name+"           ";
+            div.appendChild(nome);
+
+            const preço = document.createElement("p");
+            preço.textContent = "        Preço: "+produto.price+" R$";
+            div.appendChild(preço);
+
+            const excludeBt = document.createElement("button");
+            excludeBt.textContent = "Excluir";
+            excludeBt.addEventListener("click",()=>{
+                const index = productList.indexOf(produto);
+                if (index !== -1) {
+                    productList.splice(index,1);
+                }
+                div.remove();
+            })
+            div.appendChild(excludeBt);
+
+            productSaleListDiv.appendChild(div);
+        }
+    })
+})
+
+finalizeBt.addEventListener("click",()=>{
+    let compraObj = {};
+
+    const clienteNM = clientInput.value;
+    if (clienteNM === null || !clienteNM) {
+        clienteNM = "cliente não definido";
+        return;
+    }
+
+    clientList.forEach(c =>{
+        if (c.name === clienteNM) {
+            alert(c.name+": "+c.id);
+            compraObj.cliente = c.id;
+            compraObj.formaDePagamento = paymentWay.value;
+            compraObj.produtos = listaDeCompra;
+        }
+    })
+
+    fetch(serv+"/flow/client/compra",{
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(compraObj)
+    }).then(response =>{
+        if (!response.ok) {
+            const errorMessage = response.text();
+            throw new Error("erro ao registrar compra:  "+responseMessage);
+        }
+        const data = response.text();
+        return data;
+    }).then(response => {
+        alert(response);
+
+        listaDeCompra = [];
+        productSaleListDiv.innerHTML = "";
+        clientInput.value = "";
+        productInput.value = "";
+        quantidade.value = "";
+    }).catch(err =>{
+        alert(err);
+        console.log(err);
+    })
+})
