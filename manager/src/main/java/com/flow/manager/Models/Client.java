@@ -17,8 +17,9 @@ public class Client {
     private String CPF;
     private long phone;
     private LocalDateTime date;
-    private BigDecimal divida;
     private String user;
+    private boolean fiado;
+    private BigDecimal divida;
 
     private List<Compra> compraList = new ArrayList<>();
 

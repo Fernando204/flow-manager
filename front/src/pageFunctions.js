@@ -57,3 +57,6 @@ showPassword2.addEventListener("change",()=>{
     registerPassword.type = type;
     confirmPassword.type = type;
 })
+
+//testando teclado erguido com digitação extrema delicadeza pura hello world
+//testando digitação com o teclado abaixado é beleza pura nessa bagaça hello worldconsole.log("hello wrld")""

@@ -33,24 +33,25 @@ const loadList = (list,listDiv)=>{
 
                 const closeBt = document.createElement("button");
                 closeBt.textContent = "X";
-                closeBt.classList.add("closeBt")
+                closeBt.classList.add("closeBt");
                 infoDiv.appendChild(closeBt);
                 
-                closeBt.addEventListener("click",()=>{
-                    infoDiv.style.display = "none";
-                })
-
-                infoBt.addEventListener("click",()=>{
-                    infoDiv.style.display = "flex";
-                })
-
+                
                 const deleteBt = document.createElement("button");
                 deleteBt.classList.add("main-button");
                 deleteBt.classList.add("deletBt")
                 
+                
                 const title = document.createElement("h1");
                 infoDiv.appendChild(title);
                 if (item.price) {
+                    infoBt.addEventListener("click",()=>{
+                    infoDiv.style.display = "flex";
+                    })
+                    closeBt.addEventListener("click",()=>{
+                        infoDiv.style.display = "none";
+                    })
+    
                     deleteBt.textContent = "Excluir Produto";
                     title.textContent = "Informações do Produto";
                     
@@ -71,25 +72,23 @@ const loadList = (list,listDiv)=>{
                     data.textContent = "Data De registro: "+formatDate.toLocaleString("pt-BR");
                     infoDiv.appendChild(data);
                 }else{
-                    deleteBt.textContent = "Excluir Cliente";
-                    title.innerText = "Informações do Cliente: "
-                    
-                    const name = document.createElement("p");
-                    name.textContent = "Nome do Cliente: "+item.name;
-                    infoDiv.appendChild(name);
+                    infoBt.addEventListener("click",()=>{
+                        clientInfoDiv.style.display = "flex";
+                        
+                        editInputs[0].value = item.name;
+                        editInputs[1].value = item.cpf;
+                        editInputs[2].value = item.phone;
 
-                    const cpf = document.createElement("p");
-                    cpf.textContent = "CPF: "+item.cpf;
-                    infoDiv.appendChild(cpf);
+                        const formatDate = new Date(item.date);
+                        editInputs[3].value = formatDate.toLocaleString("pt-BR");
 
-                    const number = document.createElement("p");
-                    number.textContent = "Número de Telefone: "+item.phone;
-                    infoDiv.appendChild(number);
-                    
-                    const data = document.createElement("p");
-                    const formatDate = new Date(item.date);
-                    data.textContent = "Data de registro: "+formatDate.toLocaleString("pt-BR");
-                    infoDiv.appendChild(data);
+                        if (item.fiado){
+                            fiadoCheckBox.checked = true;
+                        }
+                        atualClient[0] = client;
+                        atualClient[1] = item;
+                    })
+                   
                 }
                 title.style.marginLeft = "20px"
                 infoDiv.appendChild(deleteBt);
@@ -426,4 +425,12 @@ finalizeBt.addEventListener("click",()=>{
         alert(err);
         console.log(err);
     })
+})
+
+closeInfoBt.addEventListener("click",()=>{
+    clientInfoDiv.style.display = "none";
+});
+
+deleteClientBt.addEventListener("click",()=>{
+    
 })

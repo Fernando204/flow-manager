@@ -18,6 +18,7 @@ const registerBt = document.getElementById("registerBt")
 //listas:
 const clientListDiv = document.getElementById("clientList");
 const productListDiv = document.getElementById("productList");
+const productSaleListDiv = document.getElementById("productListDiv");
 
 //elementos para login:
 const emailInput = document.getElementById("emailInput");
@@ -38,11 +39,15 @@ const clientInput = document.getElementById("clientInput");
 const clientSearchBox = document.getElementById("clientSearchBox");
 const finalizeBt = document.getElementById("finalizeSaleBt");
 const addProductBt = document.getElementById("addProductBt");
-const productSaleListDiv = document.getElementById("productListDiv");
 const paymentWay = document.getElementById("paymentWay");
 const quantidade = document.querySelector(".q2");
+const editInputs = document.querySelectorAll(".infoEdit-input");
 
 //elementos de informações do cliente:
+const closeInfoBt = document.getElementById("closeInfoBt");
+const clientInfoDiv = document.getElementById("clientInfoDiv");
+const fiadoCheckBox = document.getElementById("fiadoCheckBox");
+const deleteClientBt = document.getElementById("deleteClientBt");
 const infoUserName = document.getElementById("infoUserName");
 const infoUserId = document.getElementById("infoUserId");
 const infoUserDate = document.getElementById("infoUserDate");
@@ -62,5 +67,7 @@ let productList = [];
 let clientList = [];
 let listaDeCompra = [];
 let userData = {};
+let atualClient = [];
+let atualProduct = [];
 let totalDaCompra = 0;
 let openBox = vendaBox;//variavel para separar a interface exibida

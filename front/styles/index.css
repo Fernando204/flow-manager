@@ -170,9 +170,64 @@ button:hover{
     box-shadow: -1px 1px 5px 0px  black;
     z-index: 2;
     border-radius: 5px;
+    padding-left: 20px;
 }
 .infoDiv p{
     margin-left: 40px;
+}
+.toggle {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #949494d2;
+    border-radius: 20px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+label{
+    margin-left: 20px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.toggle::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-color: #000000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+label input[type="checkbox"] {
+    display: none;
+}
+
+label input[type="checkbox"]:checked + .toggle {
+    background-color: #696969d2;
+}
+
+label input[type="checkbox"]:checked + .toggle::before {
+    transform: translateX(20px) translateY(-50%);
+}
+
+.info-row{
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 20px;
+    width: auto;
+    max-width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-items: center;
+}
+.infoEdit-input{
+    border: none;
 }
 .closeBt{
     height: 5vh;

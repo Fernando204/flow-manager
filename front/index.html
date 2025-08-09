@@ -159,7 +159,37 @@
                 </div>
                 <button style="margin-top: -50px;" id="logoutBt" class="main-button">logout</button>
             </div>
+
         </section>
+    </div>
+    
+    <div id="clientInfoDiv" class="infoDiv" style="display: none">
+        <button id="closeInfoBt" class="closeBt">X</button>
+        <h1>Informações do Cliente:</h1>
+        
+        <div class="info-row">
+            <h4>Nome do Cliente: </h4><input id="nameInfo" class="infoEdit-input" type="text" readonly>
+        </div>
+        <div class="info-row">
+            <h4>CPF: </h4><input class="infoEdit-input" type="text" readonly>
+        </div>
+        <div class="info-row">
+            <h4>Número de telefone: </h4><input class="infoEdit-input" type="text" readonly>
+        </div>
+        <div class="info-row">
+            <h4>Data de Registro: </h4><input class="infoEdit-input" type="text" readonly>
+        </div>
+        <div class="info-row">
+            <h4>Pode Comprar fiado?</h4><input id="fiado-checkBox" type="checkbox" disabled>  
+        </div>
+
+        <label>
+            <input type="checkbox" id="toggle-edit-client">
+            <span class="toggle"></span>
+            Editar
+        </label>
+        <button id="deletClientBt" class="main-button deletBt">Excluir</button>
+        <h1></h1>
     </div>
 
     <script src="src/variables.js"></script>
@@ -167,5 +197,6 @@
     <script src="src/pageFunctions.js"></script>
     <script src="src/index.js"></script>
     <script src="src/initializeSession.js"></script>
+    
 </body>
 </html>
