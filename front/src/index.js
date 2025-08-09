@@ -409,7 +409,7 @@ finalizeBt.addEventListener("click",()=>{
     }).then(response =>{
         if (!response.ok) {
             const errorMessage = response.text();
-            throw new Error("erro ao registrar compra:  "+responseMessage);
+            throw new Error("erro ao registrar compra:  "+errorMessage);
         }
         const data = response.text();
         return data;
@@ -432,5 +432,5 @@ closeInfoBt.addEventListener("click",()=>{
 });
 
 deleteClientBt.addEventListener("click",()=>{
-    
+
 })
