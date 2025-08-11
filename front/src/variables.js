@@ -47,7 +47,7 @@ const editInputs = document.querySelectorAll(".infoEdit-input");
 const closeInfoBt = document.getElementById("closeInfoBt");
 const clientInfoDiv = document.getElementById("clientInfoDiv");
 const fiadoCheckBox = document.getElementById("fiadoCheckBox");
-const deleteClientBt = document.getElementById("deleteClientBt");
+const deleteClientBt = document.getElementById("deletClientBt");
 const infoUserName = document.getElementById("infoUserName");
 const infoUserId = document.getElementById("infoUserId");
 const infoUserDate = document.getElementById("infoUserDate");
@@ -63,11 +63,22 @@ const productPriceInput = document.getElementById("productPrice");
 const medidaSelect = document.getElementById("medidaSelect");
 const granelPrice = document.getElementById("precoGranel");
 
+//elemetos de informação de produtos
+const infoProductName = document.getElementById("productName-input");
+const infoProductPrice = document.getElementById("productPriceInput");
+const infoProductUnity = document.getElementById("productUnityInput");
+const infoProductDate = document.getElementById("productDateInput");
+
+const toggleEditClient = document.getElementById("toggle-edit-client");
+const toggleEditProduct = document.getElementById("toggle-edit-Product");
+
 let productList = [];
 let clientList = [];
 let listaDeCompra = [];
 let userData = {};
 let atualClient = [];
 let atualProduct = [];
+let lastClientInfo = [];
+let clientEditSave = false;
 let totalDaCompra = 0;
 let openBox = vendaBox;//variavel para separar a interface exibida

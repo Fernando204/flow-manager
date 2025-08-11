@@ -87,6 +87,8 @@ const loadList = (list,listDiv)=>{
                         }
                         atualClient[0] = client;
                         atualClient[1] = item;
+
+                        editInputs.forEach(item => lastClientInfo.push(item.value));
                     })
                    
                 }
@@ -116,9 +118,10 @@ const loadInfoMethod = ()=>{
 }
 
 const registerClient = ()=>{
-    const obj = {name: clientNameInput.value,
-            CPF: clientCPFinput.value, 
-            phone: clientPhoneInput.value,
+    const obj = {
+            name: clientNameInput.value,
+            CPF: clientCPFinput.value || "Valor Não informado", 
+            phone: clientPhoneInput.value || null,
             user: userData.id 
         };
 
@@ -145,10 +148,20 @@ const registerClient = ()=>{
 }
 
 const registerProduct = ()=>{
+
+    let name = productNameInput.value;
+    let price = productPriceInput.value;
+    let medida = medidaSelect.value;
+
+    if (!name || !price || !medida) {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
     const obj = {
-            name: productNameInput.value,
-            price: productPriceInput.value,
-            medida: medidaSelect.value,
+            name: name,
+            price: price,
+            medida: medida,
             user: userData.id
         };
 
@@ -431,6 +444,22 @@ closeInfoBt.addEventListener("click",()=>{
     clientInfoDiv.style.display = "none";
 });
 
-deleteClientBt.addEventListener("click",()=>{
-
+deleteClientBt.addEventListener("click",async ()=>{
+    if (!confirm("Tem certeza que deseja excluir esse cliente?")){
+        return;
+    }
+    try{
+        const response = await fetch(serv+"/flow/client/delete/"+atualClient[1].id,{
+            method: "DELETE"
+        });
+    
+        if (response.ok){
+            alert("cliente deletado com sucesso");
+            clientListDiv.removeChild(atualClient[0]);
+            clientInfoDiv.style.display = "none";
+        }
+    }catch(err){
+        console.log("Erro na requisição: "+err);
+        alert("erro ao excluir cliente");
+    }
 })

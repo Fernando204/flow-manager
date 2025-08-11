@@ -18,6 +18,7 @@ import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -91,6 +92,13 @@ public class FlowController {
         return ResponseEntity.ok(clientes);
     }
     
-    
+    @DeleteMapping("/client/delete/{id}")
+    public ResponseEntity<Void> deletClient(@PathVariable String id){
+        if (!clientRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        clientRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
     
 }

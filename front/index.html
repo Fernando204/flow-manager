@@ -163,7 +163,7 @@
         </section>
     </div>
     
-    <div id="clientInfoDiv" class="infoDiv" style="display: none">
+    <div id="clientInfoDiv"  class="infoDiv" style="display: none">
         <button id="closeInfoBt" class="closeBt">X</button>
         <h1>Informações do Cliente:</h1>
         
@@ -192,10 +192,36 @@
         <h1></h1>
     </div>
 
+    <div  class="infoDiv" style="display: flex;">
+        <button class="closeBt">X</button>
+        <h1>Informações do Produto: </h1>
+
+        <div class="info-row">
+            <h4>Nome do Produto: </h4><p id="productName-input">Paçoca</p>
+        </div>
+        <div class="info-row">
+            <h4>Preço do Produto: </h4><p id="productPriceInput">3,45</p>
+        </div>
+        <div class="info-row">
+            <h4>Medida: </h4><p id="productUnityInput">Unidade</p>
+        </div>
+        <div class="info-row">
+            <h4>Data de registro: </h4><p id="productDateInput">23/54/4532</p>
+        </div>
+
+         <label>
+            <input type="checkbox" id="toggle-edit-product">
+            <span class="toggle"></span>
+            Editar
+        </label>
+        <button class="main-button deletBt">Excluir</button>
+    </div>
+
     <script src="src/variables.js"></script>
     <script src="src/out.js"></script>
     <script src="src/pageFunctions.js"></script>
     <script src="src/index.js"></script>
+    <script src="src/toggleEdit.js"></script>
     <script src="src/initializeSession.js"></script>
     
 </body>
