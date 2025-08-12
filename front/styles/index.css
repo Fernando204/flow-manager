@@ -161,7 +161,8 @@ button:hover{
 .infoDiv{
     position: absolute;
     display: none;
-    height: 70vh;
+    height: auto;
+    max-height: 80vh;
     width: 70vw;
     flex-direction: column;
     margin-top: -85vh;
@@ -171,6 +172,7 @@ button:hover{
     z-index: 2;
     border-radius: 5px;
     padding-left: 20px;
+    padding-bottom: 20px;
 }
 .infoDiv p{
     margin-left: 40px;
@@ -277,8 +279,6 @@ label input[type="checkbox"]:checked + .toggle::before {
     background-color: rgb(190, 190, 190);
 }
 .deletBt{
-    position: absolute;
-    margin-top: 50vh;
-    margin-left: 2vw;
-    width: 10vw;
+
+    padding: 10px;
 }

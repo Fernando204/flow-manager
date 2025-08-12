@@ -64,10 +64,8 @@ const medidaSelect = document.getElementById("medidaSelect");
 const granelPrice = document.getElementById("precoGranel");
 
 //elemetos de informação de produtos
-const infoProductName = document.getElementById("productName-input");
-const infoProductPrice = document.getElementById("productPriceInput");
-const infoProductUnity = document.getElementById("productUnityInput");
-const infoProductDate = document.getElementById("productDateInput");
+const closeProductBt = document.getElementById("close-product");
+const productInfoDiv = document.getElementById("productInfoDiv");
 
 const toggleEditClient = document.getElementById("toggle-edit-client");
 const toggleEditProduct = document.getElementById("toggle-edit-Product");

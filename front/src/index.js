@@ -46,31 +46,16 @@ const loadList = (list,listDiv)=>{
                 infoDiv.appendChild(title);
                 if (item.price) {
                     infoBt.addEventListener("click",()=>{
-                    infoDiv.style.display = "flex";
+                        productInfoDiv.style.display = "flex";
+
+                        editInputs[4].value = item.name;
+                        editInputs[5].value = item.price;
+                        editInputs[6].value = item.medida;
+
+                        const formatDate = new Date(item.dataDeRegistro);
+                        editInputs[7].value = formatDate.toLocaleString("pt-BR");
                     })
-                    closeBt.addEventListener("click",()=>{
-                        infoDiv.style.display = "none";
-                    })
-    
-                    deleteBt.textContent = "Excluir Produto";
-                    title.textContent = "Informações do Produto";
                     
-                    const name = document.createElement("p");
-                    name.textContent = "Nome do Produto: "+item.name;
-                    infoDiv.appendChild(name);
-                    
-                    const preço = document.createElement("p");
-                    preço.textContent = "Preço Do Produto: "+item.price;
-                    infoDiv.appendChild(preço);
-                    
-                    const medida = document.createElement("p");
-                    medida.textContent = "Medida do Produto: "+item.medida;
-                    infoDiv.appendChild(medida);
-                    
-                    const formatDate = new Date(item.dataDeRegistro);
-                    const data = document.createElement("p");
-                    data.textContent = "Data De registro: "+formatDate.toLocaleString("pt-BR");
-                    infoDiv.appendChild(data);
                 }else{
                     infoBt.addEventListener("click",()=>{
                         clientInfoDiv.style.display = "flex";
@@ -462,4 +447,7 @@ deleteClientBt.addEventListener("click",async ()=>{
         console.log("Erro na requisição: "+err);
         alert("erro ao excluir cliente");
     }
+});
+closeProductBt.addEventListener("click",()=>{
+    productInfoDiv.style.display = "none";
 })
